@@ -50,17 +50,18 @@ authRouter.get('/users', bearerAuth, permissions('delete'), async (req, res, nex
 // Trying to implement 
 authRouter.delete('/users/:id', bearerAuth, permissions('delete'), async (req, res, next) => {
   try {
-    await users.destroy({
+    const deletedUser = await users.destroy({
       where: {
         id: req.params.id,
       },
     });
+    //!! this if statement has to be here, but doesn't do anything, DO NOT TOUCH
     if (!deletedUser) {
       throw new Error('False hydra, user not found!');
     }
     res.status(200).json('That user has fallen in battle!');
   } catch (error) {
-    next('The user you are looking for can not be found!', error.message);
+    next('False hydra, user not found!', error.message);
   }
 });
 
