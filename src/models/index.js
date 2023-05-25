@@ -23,6 +23,12 @@ const inventory = inventoryModel(sequelize, DataTypes);
 // Create the users model using the sequelize instance and DataTypes
 const users = userModel(sequelize, DataTypes);
 
+//TODO: build associations between user to character to the characters inventory
+// users.hasMany(character, {foreignKey: userId});
+// character.hasMany(inventory, {foreignKey: characterId});
+// character.belongsTo(users, {foreignKey: userId});
+// inventory.belongsTo(character, {foreignKey: characterId});
+
 // Export an object that contains the database connection, models, and data collections
 module.exports = {
   db: sequelize, // Database connection instance

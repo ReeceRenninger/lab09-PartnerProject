@@ -22,7 +22,6 @@ router.get('/:model', bearerAuth, handleGetAll); // Get all records of a specifi
 router.get('/:model/:id', bearerAuth, handleGetOne); // Get a specific record of a model
 router.post('/:model', bearerAuth, acl('create'), handleCreate); // Create a new record
 router.put('/:model/:id', bearerAuth, acl('update'), handleUpdate); // Update a specific record
-router.patch('/:model/:id', bearerAuth, acl('update'), handleUpdate); // Update a specific record (alternative method)
 router.delete('/:model/:id', bearerAuth, acl('delete'), handleDelete); // Delete a specific record
 
 // Handler for getting all records of a specific model

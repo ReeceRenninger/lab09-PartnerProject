@@ -1,6 +1,6 @@
 'use strict';
 
-const inventoryModel = (sequelize, DataTypes) => sequelize.define('Inventory', {
+const inventoryModel = (sequelize, DataTypes) => sequelize.define('inventory', {
   // Define the fields of the Inventory model
   item: { type: DataTypes.STRING, required: true }, // Item field of type STRING and required
   quantity: { type: DataTypes.INTEGER, required: true }, // Quantity field of type INTEGER and required

@@ -3,10 +3,12 @@
 const express = require('express');
 const authRouter = express.Router();
 
-const { users }  = require('../models/index'); // Importing the Users model
+const { users } = require('../models/index'); // Importing the Users model
 const basicAuth = require('./middleware/basic.js'); // Importing the basic authentication middleware
 const bearerAuth = require('./middleware/bearer.js'); // Importing the bearer token authentication middleware
 const permissions = require('./middleware/acl.js'); // Importing the access control middleware
+//TODO: fix our roll dice function to work in our dungeon route
+const rollDice = require('./middleware/roller.js');
 
 // Route for user signup
 authRouter.post('/signup', async (req, res, next) => {
@@ -42,14 +44,17 @@ authRouter.get('/users', bearerAuth, permissions('delete'), async (req, res, nex
 
   // Extract the usernames from the user records
   const list = userRecords.map(user => user.username);
-
   res.status(200).json(list); // Send the response with the list of usernames
 });
 
 // Route for accessing the dungeon
 authRouter.get('/dungeon', bearerAuth, async (req, res, next) => {
-  res.status(200).send('Welcome to the Dungeon! Roll an acrobatics check (must hit 15) or fall into the chasm of doom!');
+  let results = rollDice(15);
+
+  res.status(200).send(`Welcome to the Dungeon! Roll an acrobatics check (must hit 15) or fall into the chasm of doom! You ${results}`);
+},
   // Send a welcome message for accessing the dungeon route
-});
+
+);
 
 module.exports = authRouter; // Export the authRouter
