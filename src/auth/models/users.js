@@ -11,28 +11,28 @@ const userModel = (sequelize, DataTypes) => {
     // Define the table columns and their data types
     username: { type: DataTypes.STRING, required: true, unique: true },
     password: { type: DataTypes.STRING, required: true },
-    role: { type: DataTypes.ENUM('user', 'player', 'dm', 'admin'), required: true, defaultValue: 'user'},
+    role: { type: DataTypes.ENUM('npc', 'spectator', 'player', 'dm'), required: true, defaultValue: 'npc'},
     token: {
       type: DataTypes.VIRTUAL,
       get() {
         // Generate a JSON Web Token (JWT) for the user
-        return jwt.sign({ username: this.username }, SECRET);
+        return jwt.sign({ username: this.username }, SECRET, { expiresIn: 1000 * 60 * 60 * 24 * 7 });
       },
-      set(tokenObj) {
-        // Set the token value when assigned
-        let token = jwt.sign(tokenObj, SECRET);
-        return token;
-      },
+      // set(tokenObj) {
+      //   // Set the token value when assigned
+      //   let token = jwt.sign(tokenObj, SECRET);
+      //   return token;
+      // },
     },
     capabilities: {
       type: DataTypes.VIRTUAL,
       get() {
         // Define the capabilities (permissions) based on the user's role
         const acl = {
-          user: ['read'],
+          npc: ['read'],
+          spectator: ['read', 'create'],
           player: ['read', 'create', 'update'],
           dm: ['read', 'create', 'update', 'delete'],
-          admin: ['read', 'create', 'update', 'delete'],
         };
         return acl[this.role];
       },
