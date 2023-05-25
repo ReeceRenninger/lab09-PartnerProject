@@ -19,8 +19,8 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bo
 
 // Routes
 app.use(authRoutes); // Mount authentication routes
-app.use('/character', routes); // character route
-app.use('/inventory', routes); // inventory route
+app.use(routes); // character/inventory route
+
 
 // Catchalls
 app.use('*', notFound); // Handle 404 Not Found errors

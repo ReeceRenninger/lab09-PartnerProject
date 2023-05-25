@@ -86,3 +86,5 @@ const userModel = (sequelize, DataTypes) => {
 };
 
 module.exports = userModel; // Export the userModel function
+
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkR1bmdlb24gTWFzdGVyIiwiaWF0IjoxNjg1MDU3NTAxLCJleHAiOjIyODk4NTc1MDF9._1uWGc1FpZz8ElSRGWynZAhbTj4VaggMShf44NL66VI

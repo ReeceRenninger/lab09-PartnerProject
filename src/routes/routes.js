@@ -84,7 +84,7 @@ async function handleUpdate(req, res, next) {
 async function handleDelete(req, res, next) {
   try {
     let id = req.params.id;
-    let deletedRecord = await req.model.delete(id);
+    let deletedRecord = await req.model.delete('This has been banished from the realms.', id);
     res.status(200).json(deletedRecord);
 
   } catch (error) {
