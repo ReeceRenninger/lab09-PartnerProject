@@ -1,38 +1,47 @@
 # LAB - Class 09
 
-Project: Lab 09 / D&D Back-end server
+# Project: Lab 09 / D&D Back-end server
 
-Author: Nick Mullaney & Reece Renninger
-Problem Domain
+## Author: Nick Mullaney & Reece Renninger
 
-Concise Description of why this app exists
-Links and Resources
+### Problem Domain
 
-    GitHub Actions ci/cd
-    back-end server url (when applicable)
-    front-end application (when applicable)
+Create a fully functioning API auth server with CRUD functionality that utilizes bearer/basic auth.
 
-Collaborators
-Setup
-.env requirements (where applicable)
+### Links and Resources
 
-for now I have none and do not require one
+[GitHub Actions ci/cd](https://github.com/ReeceRenninger/lab09-PartnerProject)
+
+[back-end server url](https://dandd-backend-project.onrender.com)
+
+### Collaborators
+
+### Setup
+
+```javascript
+PORT=<port-of-your-choice>
+DATABASE_URL=postgres://localhost:5432/<your-db-name>
+SECRET=<insert-secret-here>
+```
+
 How to initialize/run your application (where applicable)
 
-    e.g. npm start
+    Clone repo down to local machine, set up envs to your liking, npm i, npm run init:config, npm run db:create
 
 How to use your library (where applicable)
 Features / Routes
 
-    Feature One: Details of feature
-    GET : /hello - specific route to hit
+  **ALL CRUD FUNCTIONS WILL BE ACCESSIBLE ONLY TO USERS WITH THE GIVEN PERMISSIONS**
+
+    GET : /users, /inventory, /character - grab all characters, inventory, 
+    POST : /users, /inventory, /character - create new users, characters, or inventory
+    PUT : /inventory, /character - update characters or inventory
+    DELETE : /users, /inventory, /character - delete users, character, or inventory
 
 Tests
 
-    How do you run tests?
-    Any tests of note?
-    Describe any tests that you did not complete, skipped, etc
+    No tests are currently implemented
 
 UML
 
-Link to an image of the UML for your application and response to events
+![UML for D&D Project Lab](assets/UML-lab09.png)
