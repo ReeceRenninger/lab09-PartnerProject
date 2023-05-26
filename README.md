@@ -16,6 +16,9 @@ Create a fully functioning API auth server with CRUD functionality that utilizes
 
 ### Collaborators
 
+- Raul helped with sorting out delete function.
+- Stephen and Tony helped with our roll dice function.
+
 ### Setup
 
 ```javascript
@@ -24,11 +27,11 @@ DATABASE_URL=postgres://localhost:5432/<your-db-name>
 SECRET=<insert-secret-here>
 ```
 
-How to initialize/run your application (where applicable)
+### How to initialize/run your application (where applicable)
 
     Clone repo down to local machine, set up envs to your liking, npm i, npm run init:config, npm run db:create
 
-How to use your library (where applicable)
+### How to use your library (where applicable)
 Features / Routes
 
   **ALL CRUD FUNCTIONS WILL BE ACCESSIBLE ONLY TO USERS WITH THE GIVEN PERMISSIONS**
@@ -38,10 +41,10 @@ Features / Routes
     PUT : /inventory, /character - update characters or inventory
     DELETE : /users, /inventory, /character - delete users, character, or inventory
 
-Tests
+### Tests
 
-    No tests are currently implemented
+    2 test suites are active to test server.js and routes.js, can be executed with npm test for full run or npm test (file name).
 
-UML
+### UML
 
 ![UML for D&D Project Lab](assets/UML-lab09.png)
