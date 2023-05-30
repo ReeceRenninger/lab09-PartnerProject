@@ -6,7 +6,7 @@
 
 ### Problem Domain
 
-Create a fully functioning API auth server with CRUD functionality that utilizes bearer/basic auth.
+Create a fully functioning API auth server with CRUD functionality that utilizes bearer/basic auth. With all tasks in mind that need to be accomplished, we created a dungeon and dragons character / inventory creation management server.
 
 ### Links and Resources
 
@@ -18,6 +18,7 @@ Create a fully functioning API auth server with CRUD functionality that utilizes
 
 - Raul helped with sorting out delete function.
 - Stephen and Tony helped with our roll dice function.
+- Chat GPT helped with pre-generating characters and inventory examples to plug in.
 
 ### Setup
 
